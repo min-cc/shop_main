@@ -206,6 +206,7 @@ body {
     text-align: center;
     line-height: 100px;
     position: absolute;
+    top: 360px;
 }
 
 .fa-arrow-right,
@@ -216,11 +217,9 @@ body {
 
 .arrow-right {
     right: 0px;
-    top: 160px;
 }
 
 .arrow-left {
-    top: 160px;
     left: 0px;
 }
 
@@ -723,32 +722,32 @@ body {
 .sale-tag {
     text-align: center;
     position: absolute;
+    border-radius: 100%;
+    color: white;
+    font-weight: bold;
     right: -18px;
     top: 21px;
     height: 60px;
     width: 60px;
-    border-radius: 100%;
     background-color: #00bcd4;
-    color: white;
     font-size: 14px;
-    font-weight: bold;
     line-height: 36px;
     z-index: 2;
 }
 
 .new-tag {
     text-align: center;
-    z-index: 1;
     position: absolute;
+    border-radius: 100%;
+    color: white;
+    font-weight: bold;
+    z-index: 1;
     right: -14px;
     top: 66px;
     height: 50px;
     width: 50px;
-    border-radius: 100%;
     background-color: #393d50;
-    color: white;
     font-size: 14px;
-    font-weight: bold;
     line-height: 25px;
 }
 
@@ -1617,9 +1616,6 @@ textarea:focus {
     .payment-detail {
         width: auto;
     }
-    /* .categories-item {
-        margin: 0;
-    } */
 }
 
 @media only screen and (max-width: 465px) {
