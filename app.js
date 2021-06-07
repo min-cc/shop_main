@@ -19,11 +19,11 @@ showSlides(slideIndex);
 
 function plusSlides(n) {
   console.log(n);
-  showSlides(slideIndex += n);
+  showSlides((slideIndex += n));
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
@@ -42,8 +42,8 @@ function showSlides(n) {
   for (i = 0; i < carousel.length; i++) {
     carousel[i].classList.remove("carousel-active");
   }
-  slides[slideIndex-1].style.display = "block";
-  carousel[slideIndex-1].classList.add("carousel-active");
+  slides[slideIndex - 1].style.display = "block";
+  carousel[slideIndex - 1].classList.add("carousel-active");
 }
 
 function nextSlide() {
@@ -59,10 +59,12 @@ function showFormRegister() {
     register[0].style.display = "block";
   } else {
     register[0].style.display = "none";
-  } 
-  var reset = document.getElementsByClassName('register')[0].querySelectorAll('input')
-  for(x of reset){
-    x.value = ''
+  }
+  var reset = document
+    .getElementsByClassName("register")[0]
+    .querySelectorAll("input");
+  for (x of reset) {
+    x.value = "";
   }
 }
 
@@ -89,7 +91,7 @@ var password = document.getElementById("password");
 var cfpassword = document.getElementById("cfpassword");
 var btnDisable = document.getElementById("register");
 
-function validateName(){
+function validateName() {
   var valueName = xoa_dau(username.value);
   // var validateName = /^[a-zA-Z0-9 ]{1,}$/g;
   var validateName = /^\w{2,32}$/g;
@@ -98,63 +100,66 @@ function validateName(){
   } else {
     document.getElementsByClassName("warning")[0].style.display = "block";
   }
-  validateCheck(0)
+  validateCheck(0);
 }
 
-function validatePass(){
-  var splitArr = password.value.split('') //tach string thanh array
-  var chuthuong = 0 
-  var chuhoa = 0
-  for(var x of splitArr){
-    if('a' <= x && x <= 'z'){
-      chuthuong++
+function validatePass() {
+  var splitArr = password.value.split(""); //tach string thanh array
+  var chuthuong = 0;
+  var chuhoa = 0;
+  for (var x of splitArr) {
+    if ("a" <= x && x <= "z") {
+      chuthuong++;
     }
-    if('A' <= x && x <= 'Z'){
-      chuhoa++
+    if ("A" <= x && x <= "Z") {
+      chuhoa++;
     }
   }
-  if(chuthuong*chuhoa != 0 && 8 <= splitArr.length && splitArr.length <=32){
-    document.getElementsByClassName("warning")[1].style.display = "none"
-  }else{
+  if (
+    chuthuong * chuhoa != 0 &&
+    8 <= splitArr.length &&
+    splitArr.length <= 32
+  ) {
+    document.getElementsByClassName("warning")[1].style.display = "none";
+  } else {
     document.getElementsByClassName("warning")[1].style.display = "block";
   }
-  validateCheck(1)
+  validateCheck(1);
 }
 
 function confirmPass() {
-  if(password.value!=cfpassword.value){
-    document.getElementsByClassName("warning")[2].style.display = "block"
-  }else{
-    document.getElementsByClassName("warning")[2].style.display = "none"
-
+  if (password.value != cfpassword.value) {
+    document.getElementsByClassName("warning")[2].style.display = "block";
+  } else {
+    document.getElementsByClassName("warning")[2].style.display = "none";
   }
-  validateCheck(2)
+  validateCheck(2);
 }
 
-function validateCheck(x){
-  if(document.getElementsByClassName("warning")[x].style.display == "block"){
-    btnDisable.disabled = true
-    btnDisable.classList.add('disable-btn')
-  }else{
-    btnDisable.disabled = false
-    btnDisable.classList.remove('disable-btn')
+function validateCheck(x) {
+  if (document.getElementsByClassName("warning")[x].style.display == "block") {
+    btnDisable.disabled = true;
+    btnDisable.classList.add("disable-btn");
+  } else {
+    btnDisable.disabled = false;
+    btnDisable.classList.remove("disable-btn");
   }
 }
 
-function showPopup(){
-  document.getElementsByClassName("popup")[0].style.display = "block"
+function showPopup() {
+  document.getElementsByClassName("popup")[0].style.display = "block";
 }
 
-if(localStorage.getItem('user') == 'true'){
-  showPopup()
+if (localStorage.getItem("user") == "true") {
+  showPopup();
   setTimeout(() => {
-    document.getElementsByClassName("popup")[0].style.display = "none"
-    localStorage.removeItem('user')
-  }, 3000)
+    document.getElementsByClassName("popup")[0].style.display = "none";
+    localStorage.removeItem("user");
+  }, 3000);
 }
 
 function validateForm() {
-  localStorage.setItem('user', 'true')
+  localStorage.setItem("user", "true");
 }
 
 nextSlide();
